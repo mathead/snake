@@ -1,3 +1,5 @@
+var canvas;
+
 /** @constructor Snake
   * Constructs a new snake object
   */
@@ -11,7 +13,9 @@ function Snake() {
   this.food = [];
   this.over = false;
   // Create game canvas and context
-  var canvas = document.createElement('canvas');
+  if (canvas)
+    canvas.parentElement.removeChild(canvas);
+  canvas = document.createElement('canvas');
   canvas.width = this.width * this.cellSize;
   canvas.height = this.height * this.cellSize;
   document.body.appendChild(canvas);
