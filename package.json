@@ -1,0 +1,26 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "A simple snake game",
+  "main": "game.js",
+  "scripts": {
+    "babel": "babel --presets es2015 src/game.js -o build/snake.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hlavacek/snake.git"
+  },
+  "author": "hlavacek",
+  "license": "BSD v3",
+  "bugs": {
+    "url": "https://github.com/hlavacek/snake/issues"
+  },
+  "homepage": "https://github.com/hlavacek/snake#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^3.6.0"
+  }
+}
