@@ -32,6 +32,15 @@ export default class Game {
     * Updates the game world.
     */
   update() {
+    var inputs = {ArrowLeft: 'left', ArrowUp: 'up', ArrowRight: 'right', ArrowDown: 'down'};
+
+    let { x, y } = this.snake.getPositon();
+    if (x < 0 || x > this.width || y < 0 || y > this.height)
+      this.over = true;
+
+    if (this.over)
+      return;
+
     this.food.forEach((food) => {
       food.update();
     });
@@ -47,7 +56,12 @@ export default class Game {
       food.render(this.backBufferContext);
     })
     this.snake.render(this.backBufferContext);
-    this.screenBufferContext.drawImage(this.backBufferCanvas,0,0)
+    this.screenBufferContext.drawImage(this.backBufferCanvas, 0, 0)
+
+    if (this.over) {
+      this.screenBufferContext.font = "10pt sans-serif";
+      this.screenBufferCanvas.fillText("Game Over", 25, 50);
+    }
   }
   loop() {
     this.update();
